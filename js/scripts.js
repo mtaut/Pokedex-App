@@ -22,3 +22,4 @@ if (pokemonList[i].height >20) {
   document.write('<p>', pokemonList[i].name + pokemonList[i].height + '; </p>');
  }
 }
+
