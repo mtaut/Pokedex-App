@@ -14,12 +14,18 @@ let pokemonList = [
 ];
 
 // print message if height is taller than 20 (inches)
-for(let i=0; i < pokemonList.length; i++){
+//forEach function
+pokemonList.forEach(function(pokemon){
+  console.log(pokemon.name + ' is ' + pokemon.height + ' inches tall. Their pokemon type is ' + pokemon.type + '.');
+});
+
+//forLoop below here
+/*for(let i=0; i < pokemonList.length; i++){
 
 if (pokemonList[i].height >20) {
   document.write('<p>', pokemonList[i].name + pokemonList[i].height + ' -Wow, that\'s big!' + '</p>');
 }else {
   document.write('<p>', pokemonList[i].name + pokemonList[i].height + '; </p>');
  }
-}
+}*/
 
