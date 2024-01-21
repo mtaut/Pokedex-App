@@ -1,18 +1,30 @@
 // height is shown in inches
-//added IIFE
+//added IIFE and new pokemonRepository
+let pokemonRepository = (function() {
 let pokemonList = [
-  { name: "Charmander", height: 24, type: ["fire"]},
-  { name: "Pikachu", height: 16, type: ["electric"]},
-  { name: "Jigglypuff", height: 20, type: ["fairy"]}
-]();
+  { name: "Charmander", height: 24, type: ["fire"], category: "Dragon"},
+  { name: "Pikachu", height: 16, type: ["electric"], category: "Mouse"},
+  { name: "Jigglypuff", height: 20, type: ["fairy"], category: "Balloon"}
+]
 
-// print message if height is taller than 20 (inches)
+return {
+  add: function(pokemon) {
+    pokemonList.push(pokemon);
+  },
+  getAll: function(){
+    return pokemonList;
+  }
+};
+})();
+
+
 //forEach function
 pokemonList.forEach(function(pokemon){
-  console.log(pokemon.name + ' is ' + pokemon.height + ' inches tall. Their pokemon type is ' + pokemon.type + '.');
+  document.write(pokemon.name + ' is ' + pokemon.height + ' inches tall. Their pokemon type is ' + pokemon.type + '.');
 });
 
 //forLoop below here
+
 /*for(let i=0; i < pokemonList.length; i++){
 
 if (pokemonList[i].height >20) {
