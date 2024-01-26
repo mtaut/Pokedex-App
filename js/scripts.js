@@ -1,11 +1,12 @@
 // height is shown in inches
 //added IIFE and new pokemonRepository
-let pokemonRepository = (function() {
-let pokemonRepository = [
+let pokemonRepository = (function () {
+let repository = [
   { name: "Charmander", height: 24, type: ["fire"], category: "Dragon"},
   { name: "Pikachu", height: 16, type: ["electric"], category: "Mouse"},
-  { name: "Jigglypuff", height: 20, type: ["fairy"], category: "Balloon"}
-]
+  { name: "Jigglypuff", height: 20, type: ["fairy"], category: "Balloon"},
+];
+
 function add(pokemon) {
   if (
     typeof pokemon === "object" &&
@@ -21,6 +22,7 @@ function add(pokemon) {
 function getAll() {
   return repository;
 }
+//from replit video section here:
 function addListItem(pokemon){
   let pokemonList = document.querySelector(".pokemon-list");
   let listpokemon = document.createElement('li');
@@ -30,6 +32,7 @@ function addListItem(pokemon){
   listpokemon.appendChild(button);
   pokemonList.appendChild(listpokemon);
 }
+button.addEventListener("click", () => {showDetails(pokemon)});
 return {
   add: add,
   getAll: getAll,
@@ -37,12 +40,13 @@ return {
   };
 })();
 
-pokemonRepository.add({ name: "Pikachu", height: 16, types: ["electric"] }); 
+//unsure why this won't show Squirtle...
+pokemonRepository.add({ name: "Squirtle", height: 20, type: ["water"] });
 
 console.log(pokemonRepository.getAll());
 
 //forEach function
-pokemonRepository.getAll().forEach(function (pokemon) {
+pokemonRepository.getAll().forEach(function(pokemon) {
   pokemonRepository.addListItem(pokemon);
 });
 
