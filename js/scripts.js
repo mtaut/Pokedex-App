@@ -32,7 +32,10 @@ function addListItem(pokemon){
   listpokemon.appendChild(button);
   pokemonList.appendChild(listpokemon);
 }
-button.addEventListener("click", () => {showDetails(pokemon)});
+button.addEventListener("click", () => {showDetails(pokemon)
+  console.log(event); 
+});
+
 return {
   add: add,
   getAll: getAll,
