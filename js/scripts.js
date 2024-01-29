@@ -2,9 +2,24 @@
 //added IIFE and new pokemonRepository
 let pokemonRepository = (function () {
 let repository = [
-  { name: "Charmander", height: 24, type: ["fire"], category: "Dragon"},
-  { name: "Pikachu", height: 16, type: ["electric"], category: "Mouse"},
-  { name: "Jigglypuff", height: 20, type: ["fairy"], category: "Balloon"},
+  { 
+    name: "Charmander",
+    height: 24,
+    type: ["fire"],
+    category: "Dragon"
+  },
+  { 
+    name: "Pikachu",
+    height: 16,
+    type: ["electric"],
+    category: "Mouse"
+  },
+  { 
+    name: "Jigglypuff",
+    height: 20,
+    type: ["fairy"],
+    category: "Balloon"
+  },
 ];
 
 function add(pokemon) {
