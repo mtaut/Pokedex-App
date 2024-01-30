@@ -32,23 +32,33 @@ function addListItem(pokemon){
 }
 //loadList() function here, from ex1.7
 function loadList() {
+//uncertain of syntax and location of showLoadingMessage...  
+  function showLoadingMessage() {
+    ('Loading now...');
+  };
   return fetch(apiUrl).then(function (response) {
     return response.json();
   }).then(function (json) {
     json.results.forEach(function (item) {
       let pokemon = {
         name: item.name,
-        detailsUrl: item.url
-      };
+        detailsUrl: item.url       
+      };function hideLoadingMessage () {
+        };
       add(pokemon);
       console.log(pokemon);
     });
   }).catch(function (e) {
-    console.error(e);
+    console.error(e);function hideLoadingMessage () {
+      };
   })
 }
 //loadDetails() function here, from ex1.7
 function loadDetails(item) {
+//uncertain of showLoadingMessage syntax and if in the correct spot...  
+  function showLoadingMessage() {
+    ('Loading now...');
+  };
   let url = item.detailsUrl;
   return fetch(url).then(function (response) {
     return response.json();
@@ -57,8 +67,11 @@ function loadDetails(item) {
     item.imageUrl = details.sprites.front_default;
     item.height = details.height;
     item.types = details.types;
+    function hideLoadingMessage () {
+    };
   }).catch(function (e) {
-    console.error(e);
+    console.error(e); function hideLoadingMessage () {
+    };
   });
 }
 
