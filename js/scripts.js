@@ -22,13 +22,16 @@ let repository = [
   },
 ];
 
+//Pokemon API here
+let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+
 function add(pokemon) {
   if (
     typeof pokemon === "object" &&
     "name" in pokemon &&
     "height" in pokemon &&
-    "types" in pokemon
-  ) {
+    "type" in pokemon
+  ) { 
     repository.push(pokemon);
   } else {
     console.log("pokemon is not correct");
@@ -37,7 +40,8 @@ function add(pokemon) {
 function getAll() {
   return repository;
 }
-//from replit video section here:
+
+//from replit video section here (ex1.6):
 function addListItem(pokemon){
   let pokemonList = document.querySelector(".pokemon-list");
   let listpokemon = document.createElement('li');
@@ -46,18 +50,12 @@ function addListItem(pokemon){
   button.classList.add("button-class");
   listpokemon.appendChild(button);
   pokemonList.appendChild(listpokemon);
-}
-button.addEventListener("click", () => {showDetails(pokemon)
+
+button.addEventListener("click", () => {
+  showDetails(pokemon)
   console.log(event); 
-});
-
-return {
-  add: add,
-  getAll: getAll,
-  addListItem: addListItem  
-  };
-})();
-
+ });
+}
 //unsure why this won't show Squirtle...
 pokemonRepository.add({ name: "Squirtle", height: 20, type: ["water"] });
 
@@ -67,6 +65,62 @@ console.log(pokemonRepository.getAll());
 pokemonRepository.getAll().forEach(function(pokemon) {
   pokemonRepository.addListItem(pokemon);
 });
+
+//loadList() function here
+function loadList() {
+  return fetch(apiUrl).then(function (response) {
+    return response.json();
+  }).then(function (json) {
+    json.results.forEach(function (item) {
+      let pokemon = {
+        name: item.name,
+        detailsUrl: item.url
+      };
+      add(pokemon);
+    });
+  }).catch(function (e) {
+    console.error(e);
+  })
+}
+
+//loadDetails() function here
+function loadDetails(item) {
+  let url = item.detailsUrl;
+  return fetch(url).then(function (response) {
+    return response.json();
+  }).then(function (details) {
+    //Here add the details to the item
+    item.imageUrl = details.sprites.front_default;
+    item.height = details.height;
+    item.types = details.types;
+  }).catch(function (e) {
+    console.error(e);
+  });
+}
+
+//showDetails() function here
+function showDetails(pokemon) {
+  loadDetails(pokemon).then(function () {
+    console.log(pokemon);
+  });
+}
+
+return {
+  add: add,
+  getAll: getAll,
+  addListItem: addListItem  
+  };
+})();
+
+//loadList() function here
+pokemonRepository.loadList().then(function() {
+  //Now the data is loaded
+  pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.addListItem(pokemon);
+  });
+});
+
+
 
 //forLoop below here
 
