@@ -1,21 +1,46 @@
 //added IIFE and new pokemonRepository
+// **** REVISION FOR EXERCISE 1.6 ****
 let pokemonRepository = (function () {
-let pokemonList = [];
+let repository = [
+  {
+    name: "Bulbasaur",
+    height: 0.7,
+    types: ["grass", "poison"]
+  },
+  {                                               
+    name: "Charizard",
+    height: 1.7,
+    types: ["fire", "flying"]
+  },
+  {
+    name: "Pikachu",
+    height: 0.4,
+    types: ["electric"]
+  },
+  {
+    name: "Squirtle",
+    height: 0.5,
+    types: ["water"]
+  }
+];
 //Pokemon API here
-let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+//let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+//**** REVISION FOR EXERCISE 1.6 ****
 function add(pokemon) {
   if (
     typeof pokemon === "object" &&
-    "name" in pokemon
+    "name" in pokemon &&
+    "height" in pokemon &&
+    "types" in pokemon
   ) { 
-    pokemonList.push(pokemon);
+    repository.push(pokemon);
   } else {
     console.log("pokemon is not correct");
   }
 }
 function getAll() {
-  return pokemonList;
+  return repository;
 }
 //from ex1.6
 function addListItem(pokemon){
@@ -31,7 +56,7 @@ function addListItem(pokemon){
  });
 }
 //loadList() function here, from ex1.7
-function loadList() {
+/*function loadList() {
 //uncertain of syntax and location of showLoadingMessage...  
   function showLoadingMessage() {
     ('Loading now...');
@@ -52,9 +77,9 @@ function loadList() {
     console.error(e);function hideLoadingMessage () {
       };
   })
-}
+}*/
 //loadDetails() function here, from ex1.7
-function loadDetails(item) {
+/*function loadDetails(item) {
 //uncertain of showLoadingMessage syntax and if in the correct spot...  
   function showLoadingMessage() {
     ('Loading now...');
@@ -73,31 +98,41 @@ function loadDetails(item) {
     console.error(e); function hideLoadingMessage () {
     };
   });
-}
+}*/
 
 //showDetails() function here, from ex1.7
-function showDetails(item) {
+/*function showDetails(item) {
   pokemonRepository.loadDetails(item).then(function () {
     console.log(item);
   });
-}
+}*/
 
 return {
   add: add,
   getAll: getAll,
   addListItem: addListItem,
-  loadList: loadList,
-  loadDetails: loadDetails,
-  showDetails: showDetails
+  //loadList: loadList,
+  //loadDetails: loadDetails,
+  //showDetails: showDetails
   };
 })();
+
+//**** REVISION FOR EXERCISE 1.6 ****
+pokemonRepository.add({ name: "Weedle", height: 0.3, types: ["bug", "poison"] });
+
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
+
 //loadList() function here, from ex1.7
-pokemonRepository.loadList().then(function() {
+/*pokemonRepository.loadList().then(function() {
   //Now the data is loaded
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
-});
+});*/
 
 
 //forLoop here
