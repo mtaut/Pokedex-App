@@ -1,5 +1,5 @@
 .button-class {
-    background-color: #006400; /* darkgreen */
+    background-color: #ff7f50; /* coral */
     border: none;
     color: white;
     padding: 16px 32px;
@@ -11,5 +11,5 @@
     cursor: pointer;
     background-color: white;
     color: black;
-    border: 2px solid #006400; 
+    border: 2px solid #ff7f50; 
 }
