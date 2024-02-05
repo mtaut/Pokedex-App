@@ -34,9 +34,7 @@ function addListItem(pokemon){
 //loadList() function here, from ex1.7
 function loadList() {
 //uncertain of syntax and location of showLoadingMessage...  
-  function showLoadingMessage() {
-    ('Loading now...');
-  };
+  //showLoadingMessage("Loading now...") 
   return fetch(apiUrl).then(function (response) {
     return response.json();
   }).then(function (json) {
@@ -50,16 +48,14 @@ function loadList() {
       console.log(pokemon);
     });
   }).catch(function (e) {
-    console.error(e);function hideLoadingMessage () {
-      };
+    console.error(e);
+    //hideLoadingMessage ("Loading now...");
   })
 }
 //loadDetails() function here, from ex1.7
 function loadDetails(item) {
 //uncertain of showLoadingMessage syntax and if in the correct spot...  
-  function showLoadingMessage() {
-    ('Loading now...');
-  };
+  //showLoadingMessage("Loading now...");
   let url = item.detailsUrl;
   return fetch(url).then(function (response) {
     return response.json();
@@ -68,11 +64,10 @@ function loadDetails(item) {
     item.imageUrl = details.sprites.front_default;
     item.height = details.height;
     item.types = details.types;
-    function hideLoadingMessage () {
-    };
+    //hideLoadingMessage ("Loading now...");
   }).catch(function (e) {
-    console.error(e); function hideLoadingMessage () {
-    };
+    console.error(e);
+    //hideLoadingMessage ("Loading now...")
   });
 }
 
@@ -94,7 +89,7 @@ return {
 })();
 
 //**** REVISION FOR EXERCISE 1.6 ****
-pokemonRepository.add({ name: "Weedle", height: 0.3, types: ["bug", "poison"] });
+//pokemonRepository.add({ name: "Weedle", height: 0.3, types: ["bug", "poison"] });
 
 console.log(pokemonRepository.getAll());
 
