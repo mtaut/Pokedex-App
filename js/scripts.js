@@ -33,8 +33,7 @@ function addListItem(pokemon){
   }
 //loadList() function here, from ex1.7
 function loadList() {
-//uncertain of syntax and location of showLoadingMessage...  
-  //showLoadingMessage("Loading now...") 
+  //showLoadingMessage("Loading now...");
   return fetch(apiUrl).then(function (response) {
     return response.json();
   }).then(function (json) {
@@ -42,8 +41,8 @@ function loadList() {
       let pokemon = {
         name: item.name,
         detailsUrl: item.url       
-      };function hideLoadingMessage () {
-        };
+      };
+      //hideLoadingMessage ("Loading now...");
       add(pokemon);
       console.log(pokemon);
     });
@@ -53,8 +52,7 @@ function loadList() {
   })
 }
 //loadDetails() function here, from ex1.7
-function loadDetails(item) {
-//uncertain of showLoadingMessage syntax and if in the correct spot...  
+function loadDetails(item) {  
   //showLoadingMessage("Loading now...");
   let url = item.detailsUrl;
   return fetch(url).then(function (response) {
@@ -67,7 +65,7 @@ function loadDetails(item) {
     //hideLoadingMessage ("Loading now...");
   }).catch(function (e) {
     console.error(e);
-    //hideLoadingMessage ("Loading now...")
+    //hideLoadingMessage ("Loading now...");
   });
 }
 
