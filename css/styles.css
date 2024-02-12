@@ -9,7 +9,18 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    background-color: white;
+    background-color: lightyellow;
     color: black;
-    border: 2px solid #ff7f50; 
+    border: 2px solid #ff7f50;
+    list-style-type: none; 
+}
+
+.pokemon-list {
+    text-align: center;
+    list-style-type: none;
+}
+
+.main-heading {
+    text-align: center;
+    text-decoration: underline;
 }

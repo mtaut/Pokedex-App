@@ -4,7 +4,56 @@ let pokemonRepository = (function () {
 //Pokemon API here
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-//**** REVISION FOR EXERCISE 1.6 ****
+// ex1.8 modal. Function to show details of pokemon here
+  function showModal(item) {
+    modalContainer.innerHTML = '';
+  
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    let closeButtonElement = document.createElement('button');
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innderText = 'Close';
+    closeButtonElement.addEventListener('click', hideModal);
+
+    let titleElement = document.createElement('h1'); 
+    titleElement.innerText = title;
+  
+    let contentElement = document.createElement('p');
+    contentElement.innerText = text;
+
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contenElement);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible')
+  }
+
+    function hideModal() {
+      modalContainer.classList.remove('is-visible');
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+        hideModal();
+      } 
+    });
+   }
+
+  modalContainer.addEventListener('click', (e) => {
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
+  
+  document.querySelector('#show-modal').addEventListener('click', () => {
+    showModal();
+  });
+
+  
+
+//ex1.6, DOM interation here
   function add(pokemon) {
     if (
       typeof pokemon === "object" &&
@@ -18,7 +67,7 @@ let pokemonRepository = (function () {
 function getAll() {
   return pokemonList;
 }
-//from ex1.6
+//from ex1.6, DOM interaction
 function addListItem(pokemon){
   let pokemonList = document.querySelector(".pokemon-list");
   let listpokemon = document.createElement('li');
@@ -69,10 +118,10 @@ function loadDetails(item) {
   });
 }
 
-//showDetails() function here, from ex1.7
+//showDetails() function, to show modal w/details of a Pokemon
 function showDetails(item) {
   pokemonRepository.loadDetails(item).then(function () {
-    console.log(item);
+    showModal(item);
   });
 }
 
@@ -85,9 +134,6 @@ return {
   showDetails: showDetails
   };
 })();
-
-//**** REVISION FOR EXERCISE 1.6 ****
-//pokemonRepository.add({ name: "Weedle", height: 0.3, types: ["bug", "poison"] });
 
 console.log(pokemonRepository.getAll());
 
