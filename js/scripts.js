@@ -21,12 +21,16 @@ let pokemonRepository = (function () {
     let modalContainer = document.createElement('#modal-container');
     modal.classList.add("modal");
     
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modalContainer.appendChild(modal);
     modalTitle.append(nameElement);
     modalBody.append(imageElementFront);
     modalBody.append(heightElement);
   
     modalContainer.classList.add("is-visible");
-  }
+  }     
    
   function hideModal() {
     modalContainer.classList.remove("is-visible");
