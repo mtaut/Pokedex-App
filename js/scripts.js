@@ -7,7 +7,7 @@ let pokemonRepository = (function () {
 
   // ex1.8 modal function to show details of pokemon here  
   function showModal(item) {
-    modalContainer.innerHTML = '';
+    
     let modal = document.createElement('div');
     modal.classList.add('modal');
 
@@ -17,38 +17,37 @@ let pokemonRepository = (function () {
     closeButtonElement.addEventListener('click', hideModal);
 
   // elements to display pokemon details
-    let nameElement = document.createElement('<h1>' + item.name);    
-    let heightElement = document.createElement('p' + item.height);
-    let imageElementFront = document.createElement('img');    
+    let nameElement = document.createElement('h1'); 
+    nameElement.textContent = item.name;
+        
+    let heightElement = document.createElement('p');
+    heightElement.textContent = "Height: " + item.height;
 
-    let modalContainer = document.createElement('#modal-container');
+    let imageElementFront = document.createElement('img');
+    imageElementFront.classList.add('modal-img');
+    imageElementFront.style.width = '50%';
+    imageElementFront.src = item.imageUrlFront;  
 
-    modal.classList.add("modal");    
-
+    modal.appendChild(closeButtonElement); // when I moved this to the top, a 2nd 'close' button was added & actually works
     modal.appendChild(nameElement);
     modal.appendChild(heightElement);
     modal.appendChild(imageElementFront);
+   
+    modalContainer.innerHTML = ''; // when I added this previous content cleared-incl previously clicked pokemon & removed other 'close' button that wasn't working
+    modalContainer.appendChild(modal);    
     modalContainer.classList.add('is-visible');
 
-    modalContainer.appendChild(modal);    
-
-    nameElement.textContent = item.name;
-    heightElement.textContent = "Height: " + item.height;
-
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
+        hideModal();
+      }
+    });    
   }     
    
   function hideModal() {
     modalContainer.classList.remove("is-visible");
-    window.removeEventListener("keydown", (e) => {
-      if (
-        e.key === "Escape" &&
-        modalContainer.classList.contains("is-visible")
-      ) {
-        hideModal();
-      }
-    });
   }
-
+  
   modalContainer.addEventListener("click", (e) => {
     let target = e.target;
     if (target === modalContainer) {
@@ -149,13 +148,3 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
-//forLoop here
-/*for(let i=0; i < pokemonList.length; i++){
-
-if (pokemonList[i].height >20) {
-  document.write('<p>', pokemonList[i].name + pokemonList[i].height + ' -Wow, that\'s big!' + '</p>');
-}else {
-  document.write('<p>', pokemonList[i].name + pokemonList[i].height + '; </p>');
- }
-}*/
