@@ -1,17 +1,22 @@
-#modal-container {
-    display: none;
+html,
+body {
+    background-color: #ffffff;
 }
 
-#modal-container.is-visible {
+#modal-container {
+    display: none;    
+}
+
+#modal-container.is-visible {    
     position: fixed;
     padding: 20px;
     box-sizing: border-box;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 80%;
-    background: rgba(0, 0, 0, 0.3);
-
+    top: 50%;
+    left: 50%;    
+    max-width: auto;
+    height: auto;
+    background: whitesmoke;
+    
     /* to show it above other content */
     z-index: 999;
 
@@ -23,10 +28,8 @@
     text-align: center;
 }
 
-.button-class {
-    background-color: #ff7f50; /* coral */
-    border: none;
-    color: white;
+.button-class {   
+    border: 2px;    
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
@@ -34,23 +37,24 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    background-color: lightyellow;
-    color: black;
-    border: 2px solid #ff7f50;
+    background-color: lightyellow;    
+    border: 2px solid black;
     list-style-type: none; 
 }
 
 .pokemon-list {
     text-align: center;
     list-style-type: none;
+    border: 2px;    
 }
 
 .main-heading {
     text-align: center;
     text-decoration: none;
+    font-family:'Trebuchet MS';
 }
 
 .modal-close {
     float: right;
-    text-decoration: underline;
+    text-decoration: underline;    
 }

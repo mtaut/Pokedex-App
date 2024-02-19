@@ -28,22 +28,22 @@ let pokemonRepository = (function () {
     imageElementFront.style.width = '50%';
     imageElementFront.src = item.imageUrlFront;  
 
-    modal.appendChild(closeButtonElement); // when I moved this to the top, a 2nd 'close' button was added & actually works
+    modal.appendChild(closeButtonElement); 
     modal.appendChild(nameElement);
     modal.appendChild(heightElement);
     modal.appendChild(imageElementFront);
    
-    modalContainer.innerHTML = ''; // when I added this previous content cleared-incl previously clicked pokemon & removed other 'close' button that wasn't working
+    modalContainer.innerHTML = ''; 
     modalContainer.appendChild(modal);    
     modalContainer.classList.add('is-visible');      
   }     
   
   function hideModal() {
-    modalContainer.classList.remove("is-visible");
+    modalContainer.classList.remove('is-visible');
   }
   
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
       hideModal();
     }
   });
@@ -55,10 +55,7 @@ let pokemonRepository = (function () {
     }
   });
 
-  document.querySelector("#show-modal").addEventListener("click", () => {
-    showModal(item);
-  });
-
+  
   //ex1.6, DOM interation here
   function add(pokemon) {
     if (typeof pokemon === "object" && "name" in pokemon) {
