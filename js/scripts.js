@@ -35,20 +35,20 @@ let pokemonRepository = (function () {
    
     modalContainer.innerHTML = ''; // when I added this previous content cleared-incl previously clicked pokemon & removed other 'close' button that wasn't working
     modalContainer.appendChild(modal);    
-    modalContainer.classList.add('is-visible');
-
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
-        hideModal();
-      }
-    });    
+    modalContainer.classList.add('is-visible');      
   }     
-   
+  
   function hideModal() {
     modalContainer.classList.remove("is-visible");
   }
   
-  modalContainer.addEventListener("click", (e) => {
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
+      hideModal();
+    }
+  });
+
+  modalContainer.addEventListener('click', (e) => {
     let target = e.target;
     if (target === modalContainer) {
       hideModal();
