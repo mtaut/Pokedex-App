@@ -13,8 +13,7 @@ body {
     box-sizing: border-box;
     top: 50%;
     left: 50%;    
-    max-width: auto;
-    height: auto;
+    max-width: auto;       
     background: whitesmoke;
     
     /* to show it above other content */
@@ -28,7 +27,7 @@ body {
     text-align: center;
 }
 
-.button-class {   
+.button-class {   /*trying to get a larger box around this and can't....*/
     border: 2px;    
     padding: 16px 32px;
     text-align: center;

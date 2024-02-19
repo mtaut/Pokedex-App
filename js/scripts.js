@@ -21,7 +21,7 @@ let pokemonRepository = (function () {
     nameElement.textContent = item.name;
         
     let heightElement = document.createElement('p');
-    heightElement.textContent = "Height: " + item.height;
+    heightElement.textContent = "Height: " + item.height;  
 
     let imageElementFront = document.createElement('img');
     imageElementFront.classList.add('modal-img');
@@ -30,7 +30,7 @@ let pokemonRepository = (function () {
 
     modal.appendChild(closeButtonElement); 
     modal.appendChild(nameElement);
-    modal.appendChild(heightElement);
+    modal.appendChild(heightElement);    
     modal.appendChild(imageElementFront);
    
     modalContainer.innerHTML = ''; 
@@ -48,6 +48,7 @@ let pokemonRepository = (function () {
     }
   });
 
+  // Struggling to get modal to close when I click outside of modal...
   modalContainer.addEventListener('click', (e) => {
     let target = e.target;
     if (target === modalContainer) {
