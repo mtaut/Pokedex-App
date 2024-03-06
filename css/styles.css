@@ -8,14 +8,15 @@ body {
 }
 
 #modal-container.is-visible {    
-    position: fixed;
+    position: fixed;    
     padding: 20px;
     box-sizing: border-box;
-    top: 50%;
-    left: 50%;    
+    top: 20%;
+    left: 45%;    
     max-width: auto;       
     background: whitesmoke;
     justify-content: center;
+    
     
     /* to show it above other content */
     z-index: 999;
