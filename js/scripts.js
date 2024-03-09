@@ -5,33 +5,40 @@ let pokemonRepository = (function () {
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
   let modalContainer = document.querySelector('#modal-container');
 
-  // ex1.8 modal function to show details of pokemon here  
+  // ex1.8/1.10 modal function to show details of pokemon here  
   function showModal(item) {
+    let modalBody = $(".modal-body");
+    let modalTitle = $("modal-title");
+    let modalHeader = $(".modal-header");
     
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
+    modalTitle.empty();
+    modalBody.empty();
 
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
+  // elements to display pokemon details: pokemon name + front & back image + height + weight + types + abilities
+    let nameElement = $("<h1>" + item.name + "</h1>");
 
-  // elements to display pokemon details
-    let nameElement = document.createElement('h1'); 
-    nameElement.textContent = item.name;
-        
-    let heightElement = document.createElement('p');
-    heightElement.textContent = "Height: " + item.height;  
+    let imageElementFront = $('img class="modal-img" style="width:50%">');
+    imageElementFront.attr("src", item.imageUrlFront);
 
-    let imageElementFront = document.createElement('img');
-    imageElementFront.classList.add('modal-img');
-    imageElementFront.style.width = '50%';
-    imageElementFront.src = item.imageUrlFront;  
+    let imageElementBack = $('<img class="modal-img" style="width:50%">');
+    imageElementBack.attr("src", item.imageUrlBack);
 
-    modal.appendChild(closeButtonElement); 
-    modal.appendChild(nameElement);
-    modal.appendChild(heightElement);    
-    modal.appendChild(imageElementFront);
+    let heightElement = $("<p>" + "height: " + item.height + "</p>");
+
+    let weightElement = $("<p>" + "weight: " + item.weight + "</p>");
+
+    let typesElement = $("<p>" + "types: " + item.types + "</p>");
+
+    let abilitiesElement = $("<p>" + "abilities: " + item.abilities + "</p>");
+         
+    modalTitle.append(nameElement);
+    modalBody.append(imageElementFront);
+    modalBody.append(imageElementBack);
+    modalBody.append(heightElement);
+    modalBody.append(weightElement);
+    modalBody.append(typesElement);
+    modalBody.append(abilitiesElement);
+    
    
     modalContainer.innerHTML = ''; 
     modalContainer.appendChild(modal);    
