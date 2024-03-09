@@ -3,12 +3,12 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   //Pokemon API here
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  let modalContainer = document.querySelector('#modal-container');
+  let modalContainer = $('.modal-container');
 
   // ex1.8/1.10 modal function to show details of pokemon here  
   function showModal(item) {
     let modalBody = $(".modal-body");
-    let modalTitle = $("modal-title");
+    let modalTitle = $(".modal-title");
     let modalHeader = $(".modal-header");
     
     modalTitle.empty();
