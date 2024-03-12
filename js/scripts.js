@@ -56,12 +56,12 @@ let pokemonRepository = (function () {
   });
 
   // Struggling to get modal to close when I click outside of modal...
-  modalContainer.addEventListener('click', (e) => {
+  /*modalContainer.addEventListener('click', (e) => {
     let target = e.target;
     if (target === modalContainer) {
       hideModal();
     }
-  });
+  });*/
 
   
   //ex1.6, DOM interation here
@@ -89,7 +89,7 @@ let pokemonRepository = (function () {
     });
   } 
   //loadList() function here, from ex1.7
-  function loadList() {
+  /*function loadList() {
     return fetch(apiUrl)
       .then(function (response) {
         return response.json();
@@ -122,10 +122,10 @@ let pokemonRepository = (function () {
       .catch(function (e) {
         console.error(e);        
       });
-  } 
+  } */
 
   //showDetails() function, to show modal w/details of a Pokemon 
-  function showDetails(item) {
+  /*function showDetails(item) {
     loadDetails(item).then(function () {
       showModal(item);
     });
@@ -138,11 +138,11 @@ let pokemonRepository = (function () {
     loadDetails: loadDetails,
     showDetails: showDetails,
   };
-})();
+})();*/
 
 //console.log(pokemonRepository.getAll());
 
-pokemonRepository.getAll().forEach(function (pokemon) {
+/*pokemonRepository.getAll().forEach(function (pokemon) {
   pokemonRepository.addListItem(pokemon);
 });
 
@@ -151,5 +151,5 @@ pokemonRepository.loadList().then(function () {
   //Now the data is loaded
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
-  });
+  });*/
 });
