@@ -40,7 +40,8 @@ body {
     cursor: pointer;
     background-color: lightyellow;    
     border: 2px solid black;
-    list-style-type: none; 
+    list-style-type: none;
+    
 }
 
 .pokemon-list {
