@@ -47,7 +47,7 @@ let pokemonRepository = function () {
   };
 }();
 
-function addListItem(pokemon) {
+/*function addListItem(pokemon) {
   let pokemonListElement = document.querySelector(".pokemon-list");
   let listItem = document.createElement("li");
   let button = document.createElement("button");
@@ -58,9 +58,11 @@ function addListItem(pokemon) {
   button.addEventListener("click", function (event) {
     showDetails(pokemon);
   });
-} 
+}   */ 
+
 //loadList() function here, from ex1.7
-function loadList() {
+
+/*function loadList() {
   return fetch(apiUrl)
     .then(function (response) {
       return response.json();
@@ -77,9 +79,11 @@ function loadList() {
     .catch(function (e) {
       console.error(e);
     });
-}   
+}   */
+
 //loadDetails() function here, from ex1.7
-function loadDetails(item) {    
+
+/*function loadDetails(item) {    
   let url = item.detailsUrl;
   return fetch(url)
     .then(function (response) {
@@ -93,28 +97,31 @@ function loadDetails(item) {
     .catch(function (e) {
       console.error(e);        
     });
-} 
+} */
 
 //showDetails() function, to show modal w/details of a Pokemon 
-function showDetails(item) {
+
+/*function showDetails(item) {
   loadDetails(item).then(function () {
     showModal(item);
   });
-}
+}*/
 
 //console.log(pokemonRepository.getAll());
 
-pokemonRepository.getAll().forEach(function (pokemonList) {
+/*pokemonRepository.getAll().forEach(function (pokemonList) {
 pokemonRepository.addListItem(pokemon);
-}); 
+}); */
 
 //loadList() function here, from ex1.7
-pokemonRepository.loadList().then(function () {
+//pokemonRepository.loadList().then(function () {
+
 //Now the data is loaded
-pokemonRepository.getAll().forEach(function (pokemon) {
+
+/*pokemonRepository.getAll().forEach(function (pokemon) {
   pokemonRepository.addListItem(pokemon);
 });
-});
+});*/
 
   /*function hideModal() {
     modalContainer.classList.remove('is-visible');
