@@ -1,5 +1,5 @@
 //added IIFE and new pokemonRepository
-let pokemonRepository = (function () {
+let pokemonRepository = function () {
   let pokemonList = [];
   //Pokemon API here
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
@@ -45,7 +45,7 @@ let pokemonRepository = (function () {
     loadDetails: loadDetails,
     showDetails: showDetails,
   };
-})();
+}();
 
 function addListItem(pokemon) {
   let pokemonListElement = document.querySelector(".pokemon-list");
