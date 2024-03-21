@@ -93,7 +93,7 @@ function loadList() {
     });
 }
 
-// Selecting modal to load Pokemon data
+// Modal to load Pokemon data
 $('#exampleModal').on('hidden.bs.modal', function (e) {
   const modalBody = $(".modal-body");
   const modalTitle = $(".modal-title");
@@ -108,9 +108,14 @@ loadList().then(() => {
   pokemonList.forEach((pokemon) => {
     const listItem = document.createElement("li");
     listItem.classList.add("list-group-item", "list-group-item-action");
+
+    listItem.classList.add("btn", "btn-primary")
+    listItem.setAttribute("style", "margin-top: 5px,")
+    
     listItem.innerText = pokemon.name;
     listItem.setAttribute("data-toggle", "modal");
     listItem.setAttribute("data-target", "#exampleModal");
+   
 
     // Event listener to load modal    
     listItem.addEventListener("click", () => {
