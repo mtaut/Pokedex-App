@@ -16,7 +16,7 @@
 
 // elements to display pokemon details: pokemon name + front & back image + height + weight + types + abilities
     const nameElement = $("<h1>" + item.name + "</h1>");
-    const imageElementFront = $('img class="modal-img" style="width:50%">').attr("src", item.imageUrlFront);
+    const imageElementFront = $('<img class="modal-img" style="width:50%">').attr("src", item.imageUrlFront);
     const imageElementBack = $('<img class="modal-img" style="width:50%">').attr("src", item.imageUrlBack);
     const heightElement = $("<p>" + "height: " + item.height + "</p>");
     const weightElement = $("<p>" + "weight: " + item.weight + "</p>");
@@ -83,7 +83,7 @@ function loadList() {
         pokemon.height = details.height;
         pokemon.weight = details.weight;
         pokemon.types = details.types;
-        pokemon.abilities = details.abilities;
+        pokemon.abilities = details.abilities;             
       })
       .catch(function (e) {
         console.error(e);        

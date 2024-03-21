@@ -9,7 +9,6 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-
 <body>
   <!--NAVBAR -->
   <header>
@@ -17,20 +16,19 @@
       <span class="mb-0 h1">Pokémon Pokédex App</span>
     </nav>
   </header>
-  <!-- POKEMON LIST BEGINS HERE -->
   <main>
+  <!-- POKEMON LIST BEGINS HERE -->
     <div>
       <ul class="list-group"></ul>
     </div>
     <div id="modal-container"></div>
     <!-- POKEMON MODAL -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">Pokémon details
+          <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"></h5>
-            <button type="btn btn-primary" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -42,13 +40,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>  
   </main>
   <footer>
-
-  </footer>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap.js -->
+  
+  </footer>  
+ <!-- jQuery first, then Popper.js, then Bootstrap.js -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
