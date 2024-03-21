@@ -44,6 +44,19 @@
     return pokemonList;
   }
 
+  function addListItem(pokemon) {
+    const pokemonListElement = $(".pokemon-list");
+    const listItem = $("li");
+    const button = $("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listItem.appendChild(button);
+    pokemonListElement.appendChild(listItem);
+    button.addEventListener("click", function (event) {
+      showDetails(pokemon);
+    });
+  }  
+
 // loadList() Function (ex1.7)
 function loadList() {
   return fetch(apiUrl)
@@ -128,26 +141,14 @@ loadList().then(() => {
 
 return {
     add: add,
-    getAll: getAll,    
+    getAll: getAll,
+    addListItem: addListItem,    
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
     };
 
 })();
-
- /* function addListItem(pokemon) {
-  const pokemonListElement = $(".pokemon-list");
-  const listItem = $("li");
-  const button = $("button");
-  button.innerText = pokemon.name;
-  button.classList.add("button-class");
-  listItem.appendChild(button);
-  pokemonListElement.appendChild(listItem);
-  button.addEventListener("click", function (event) {
-    showDetails(pokemon);
-  });
-}  */
 
 //console.log(pokemonRepository.getAll());
 
