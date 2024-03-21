@@ -15,7 +15,8 @@ body {
     left: 45%;    
     max-width: auto;       
     background: whitesmoke;
-    justify-content: center;
+    justify-content: center;   
+
     
     
     /* to show it above other content */
@@ -27,7 +28,7 @@ body {
     /* this is used to center the modal */
     display: grid;
     text-align: center;
-}
+}  
 
 .button-class {   /*trying to get a larger box around this and can't....*/
     border: 2px;    
@@ -59,4 +60,5 @@ body {
 .modal-close {
     float: right;
     text-decoration: underline;    
-}
+}   
+
