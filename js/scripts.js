@@ -4,17 +4,17 @@
   const apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
   
 
-// modal function to show details of pokemon (ex1.8 & 1.10)  
+// Modal function to show details of pokemon (ex1.8 & 1.10)  
   function showModal(item) {
     const modalBody = $(".modal-body");
     const modalTitle = $(".modal-title");
     const modalHeader = $(".modal-header");
         
-// will clear existing pokemon modal
+// Will clear existing pokemon modal
     modalBody.empty();
     modalTitle.empty();
 
-// elements to display pokemon details: pokemon name + front & back image + height + weight + types + abilities
+// Elements to display pokemon details: pokemon name + front & back image + height + weight + types + abilities
     const nameElement = $("<h1>" + item.name + "</h1>");
     const imageElementFront = $('<img class="modal-img" style="width:50%">').attr("src", item.imageUrlFront);
     const imageElementBack = $('<img class="modal-img" style="width:50%">').attr("src", item.imageUrlBack);
@@ -44,7 +44,7 @@
     return pokemonList;
   }
 
-//loadList() function (ex1.7)
+// loadList() Function (ex1.7)
 function loadList() {
   return fetch(apiUrl)
     .then(function (response) {
@@ -54,11 +54,7 @@ function loadList() {
       json.results.forEach(function (item) {
         const pokemonDetails = {
           name: item.name,
-          detailsUrl: item.url,
-          height: item.height,
-          weight: item.weight,
-          type: item.types,
-          abilities: item.abilities,
+          detailsUrl: item.url,          
           };
         add(pokemonDetails);
         console.log(pokemonDetails);          
@@ -69,7 +65,7 @@ function loadList() {
     });
 }
 
-//loadDetails() function to load pokemon details (ex1.7)
+// loadDetails() Function to load pokemon details (ex1.7)
   function loadDetails(pokemon) {    
     const url = pokemon.detailsUrl;
     return fetch(url)
@@ -77,27 +73,27 @@ function loadList() {
         return response.json();
       })
       .then(function (details) {
-//Here, details are added to the item
+       // Here, details are added to the item
         pokemon.imageUrlFront = details.sprites.front_default;
         pokemon.imageUrlBack = details.sprites.back_default;  
         pokemon.height = details.height;
         pokemon.weight = details.weight;
-        pokemon.types = details.types;
-        pokemon.abilities = details.abilities;             
+        pokemon.types = details.types.map(type => type.type.name).join(', ');
+        pokemon.abilities = details.abilities.map(ability => ability.ability.name).join(', ');
       })
       .catch(function (e) {
         console.error(e);        
       });
 } 
 
-//showDetails() function to show modal w/Pokemon details
+// showDetails() Function to show modal w/Pokemon details
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
       showModal(pokemon);
     });
 }
 
-//selecting modal to load Pokemon data
+// Selecting modal to load Pokemon data
 $('#exampleModal').on('hidden.bs.modal', function (e) {
   const modalBody = $(".modal-body");
   const modalTitle = $(".modal-title");
@@ -106,18 +102,19 @@ $('#exampleModal').on('hidden.bs.modal', function (e) {
   modalTitle.empty();
 });
 
-//loading list of Pokemon names here
+// Loading list of Pokemon names here
 loadList().then(() => {
   const pokemonList = getAll();
   pokemonList.forEach((pokemon) => {
     const listItem = document.createElement("li");
-    listItem.classList.add("list-group-item");
+    listItem.classList.add("list-group-item", "list-group-item-action");
     listItem.innerText = pokemon.name;
+    listItem.setAttribute("data-toggle", "modal");
+    listItem.setAttribute("data-target", "#exampleModal");
 
-//event listener to load modal    
+    // Event listener to load modal    
     listItem.addEventListener("click", () => {
-      showDetails(pokemon);
-      $("#exampleModal").modal("show");
+      showDetails(pokemon);      
     });
 
     $(".list-group").append(listItem);
