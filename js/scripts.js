@@ -121,11 +121,12 @@ loadList().then(() => {
   pokemonList.forEach((pokemon) => {
     const listItem = document.createElement("li");
     listItem.classList.add("list-group-item", "list-group-item-action");
-
-    listItem.classList.add("btn", "btn-primary")
-    listItem.setAttribute("style", "margin-top: 5px,")
-    
-    listItem.innerText = pokemon.name;
+   
+    // Trying to make each list item its own button
+    listItem.classList.add("btn", "btn-primary",)
+    listItem.style.marginTop = "5px";
+        
+    listItem.innerText = pokemon.name;    
     listItem.setAttribute("data-toggle", "modal");
     listItem.setAttribute("data-target", "#exampleModal");
    
