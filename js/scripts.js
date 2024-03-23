@@ -128,8 +128,7 @@ loadList().then(() => {
         
     listItem.innerText = pokemon.name;    
     listItem.setAttribute("data-toggle", "modal");
-    listItem.setAttribute("data-target", "#exampleModal");
-   
+    listItem.setAttribute("data-target", "#exampleModal");   
 
     // Event listener to load modal    
     listItem.addEventListener("click", () => {
