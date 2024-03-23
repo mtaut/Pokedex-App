@@ -176,8 +176,7 @@ pokemonRepository.addListItem(pokemon);
       hideModal();
     }
   });*/
-
-  // Struggling to get modal to close when I click outside of modal...
+  
   /*modalContainer.addEventListener('click', (e) => {
     const target = e.target;
     if (target === modalContainer) {
