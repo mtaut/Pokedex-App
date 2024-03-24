@@ -1,63 +1,60 @@
 html,
 body {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 #modal-container {
-    display: none; 
+  display: none;
 }
 
-#modal-container.is-visible {    
-    position: fixed;    
-    padding: 20px;
-    box-sizing: border-box;
-    top: 20%;
-    left: 45%;    
-    max-width: auto;       
-    background: whitesmoke;
-    justify-content: center;   
+#modal-container.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 20%;
+  left: 45%;
+  max-width: auto;
+  background: whitesmoke;
+  justify-content: center;
 
-    
-    
-    /* to show it above other content */
-    z-index: 999;
+  /* to show it above other content */
+  z-index: 999;
 
-    /*to allow scrolling if the screen is not high enough */
-    overflow: auto;
+  /*to allow scrolling if the screen is not high enough */
+  overflow: auto;
 
-    /* this is used to center the modal */
-    display: grid;
-    text-align: center;
-}  
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+}
 
-.button-class {   /*trying to get a larger box around this and can't....*/
-    border: 2px;    
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block; 
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    background-color: lightyellow;    
-    border: 2px solid black;
-    list-style-type: none;
-    
+.button-class {
+  /*trying to get a larger box around this and can't....*/
+  border: 2px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: lightyellow;
+  border: 2px solid black;
+  list-style-type: none;
 }
 
 .pokemon-list {
-    text-align: center;
-    list-style-type: none;
-    border: 2px;    
+  text-align: center;
+  list-style-type: none;
+  border: 2px;
 }
 
 .main-heading {
-    text-align: center;
-    text-decoration: none;
-    font-family:'Trebuchet MS';
+  text-decoration: none;
+  font-family: "Trebuchet MS";
 }
 
 .modal-close {
-    float: right;
-    text-decoration: underline;    
-}   
+  float: right;
+  text-decoration: underline;
+}
