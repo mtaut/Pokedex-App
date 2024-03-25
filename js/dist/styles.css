@@ -1,0 +1,47 @@
+html,
+body {
+  background-color: #fff;
+}
+#modal-container {
+  display: none;
+}
+#modal-container.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 20%;
+  left: 45%;
+  max-width: auto;
+  background: whitesmoke;
+  justify-content: center;
+  z-index: 999;
+  overflow: auto;
+  display: grid;
+  text-align: center;
+}
+.button-class {
+  border: 2px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: lightyellow;
+  border: 2px solid #000;
+  list-style-type: none;
+}
+.pokemon-list {
+  text-align: center;
+  list-style-type: none;
+  border: 2px;
+}
+.main-heading {
+  text-decoration: none;
+  font-family: "Trebuchet MS";
+}
+.modal-close {
+  float: right;
+  text-decoration: underline;
+}
